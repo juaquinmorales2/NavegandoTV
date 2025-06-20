@@ -101,7 +101,7 @@ const HeroSection = () => {
       </div>
 
       <div className="absolute bottom-8 text-center animate-bounce">
-        <a href="#musica" className="text-white/80 hover:text-white transition-colors">
+        <a href="#Programas" className="text-white/80 hover:text-white transition-colors">
           <ChevronDown size={32} />
         </a>
       </div>

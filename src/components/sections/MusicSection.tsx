@@ -40,8 +40,8 @@ const columns = [
     tracks: [
       {
         id: "zM5ty6-A3XA",
-        url: "https://www.youtube.com/live/zM5ty6-A3XA?si=B4ogn0g5OILIgfO0",
-        title: "Lanzamiento"
+        url: "https://www.youtube.com/watch?v=pe6X6F0zpEs",
+        title: "Hablando de Deporte"
       },
       {
         id: "",
@@ -195,7 +195,7 @@ const MusicSection = () => {
 
                   <div className="mt-6">
                     <a
-                      href="https://open.spotify.com/intl-es/artist/7lt6YhtJyaJZH1eEF8lz64"
+                      href="https://www.youtube.com/@NAVEGANDO-TV"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-600 transition-colors text-white font-semibold px-4 py-2 rounded-full"

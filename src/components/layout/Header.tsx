@@ -32,7 +32,7 @@ const Header = () => {
     { name: 'Inicio', href: '#hero' },
     { name: 'Programas', href: '#Programas' },
     { name: 'Sobre Nosotros', href: '#sobre' },
-    { name: 'Shorts', href: '#galeria' },
+    { name: 'Shorts', href: '#shorts' },
     { name: 'Avisos', href: '#aviso' },
     { name: 'Contacto', href: '#contacto' },
   ];
