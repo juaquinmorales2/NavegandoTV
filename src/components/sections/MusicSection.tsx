@@ -1,15 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { Play } from 'lucide-react';
 import { useInView } from '../../hooks/useInView';
-import desenchufate from './SINFILTROS.jpg'
-import cadaloco from './cadaloco.jpg'
-import deportes from './hablemos.jpg'
+import desenchufate from './SINFILTROS.jpg';
+import cadaloco from './cadaloco.jpg';
+import deportes from './hablemos.jpg';
 
 const columns = [
   {
     title: "Sin Filtros",
-    background:
-      desenchufate,
+    background: desenchufate,
     tracks: [
       {
         id: "IQLXM24UHSw",
@@ -35,8 +34,7 @@ const columns = [
   },
   {
     title: "Hablemos de Deporte",
-    background:
-      deportes,
+    background: deportes,
     tracks: [
       {
         id: "zM5ty6-A3XA",
@@ -62,8 +60,7 @@ const columns = [
   },
   {
     title: "Cada Loco con su Tema",
-    background:
-      cadaloco,
+    background: cadaloco,
     tracks: [
       {
         id: "DDf_5Td-xeM",
@@ -92,7 +89,6 @@ const columns = [
 const MusicSection = () => {
   const sectionRef = useRef(null);
   const { inView } = useInView(sectionRef, { threshold: 0.1 });
-
   const [openTracks, setOpenTracks] = useState({});
 
   const toggleTrack = (colIndex, trackId) => {
@@ -103,7 +99,6 @@ const MusicSection = () => {
     }));
   };
 
-  // Helper to pick button color per program
   const getButtonColor = (title) => {
     switch (title) {
       case "Sin Filtros":
@@ -135,25 +130,25 @@ const MusicSection = () => {
             className={`text-gray-400 max-w-2xl mx-auto transition-all duration-700 delay-200 ${inView ? "opacity-100 transform-none" : "opacity-0 translate-y-10"
               }`}
           >
-            Mira las ultimos programas, y revive todo el entretenimiento, risas y los momentos que solo te da Navegando TV.
+            Mira los últimos programas, y revive todo el entretenimiento, risas y los momentos que solo te da Navegando TV.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-  {columns.map((column, colIndex) => {
-    const bgStyle = {
-      backgroundImage: `url(${column.background})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    };
+          {columns.map((column, colIndex) => {
+            const bgStyle = {
+              backgroundImage: `url(${column.background})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            };
 
-    return (
-      <div
-        key={colIndex}
-        className={`relative rounded-lg overflow-hidden shadow-xl transition-all duration-700 delay-${colIndex * 300} ${inView ? "opacity-100 transform-none" : "opacity-0 translate-y-10"
-          }`}
-        style={bgStyle}
-      >
+            return (
+              <div
+                key={colIndex}
+                className={`relative rounded-lg overflow-hidden shadow-xl transition-all duration-700 delay-${colIndex * 300} ${inView ? "opacity-100 transform-none" : "opacity-0 translate-y-10"
+                  }`}
+                style={bgStyle}
+              >
                 <div className="absolute inset-0 bg-black/70"></div>
 
                 <div className="relative p-5 text-white">
@@ -164,7 +159,7 @@ const MusicSection = () => {
                     const isOpen = !!openTracks[key];
 
                     return (
-                      <div key={track.id} className="mb-6">
+                      <div key={track.id || track.title} className="mb-6">
                         <div className="flex justify-between items-center">
                           <h4 className="text-lg font-semibold">{track.title}</h4>
                           <button
@@ -179,6 +174,7 @@ const MusicSection = () => {
                         {isOpen && (
                           <div className="mt-3 aspect-w-16 text-center aspect-h-14 rounded overflow-hidden shadow-lg">
                             <iframe
+                              loading="lazy"
                               className="w-full h-60"
                               src={`https://www.youtube-nocookie.com/embed/${track.id}?rel=0&showinfo=0&autoplay=1`}
                               title={track.title}
@@ -200,8 +196,14 @@ const MusicSection = () => {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-600 transition-colors text-white font-semibold px-4 py-2 rounded-full"
                     >
-                      <img src="https://img.icons8.com/?size=100&id=37326&format=png&color=FFFFFF" className='h-8' alt="" />
-                      Ver más en Youtube
+                      <img
+                        src="https://img.icons8.com/?size=100&id=37326&format=png&color=FFFFFF"
+                        className="h-8 w-8"
+                        alt="YouTube icono"
+                        width="32"
+                        height="32"
+                      />
+                      Ver más en YouTube
                     </a>
                   </div>
                 </div>
