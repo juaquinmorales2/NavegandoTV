@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "Navegando TV canal de streaming Uruguayo",
+  "host": "navegandotv.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
