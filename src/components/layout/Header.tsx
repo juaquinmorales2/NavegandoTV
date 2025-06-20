@@ -16,9 +16,9 @@ const Header = () => {
       setScrollPercentage(Math.min(currentScrollY / 2, 100));
 
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setShowHeader(false); // scroll down
+        setShowHeader(false);
       } else {
-        setShowHeader(true); // scroll up
+        setShowHeader(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -39,21 +39,21 @@ const Header = () => {
 
   const bgColor = `rgba(0, 0, 0, ${scrollPercentage / 100})`;
 
-  return (
-    <header
-      className={`fixed w-full z-50 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] ${
-        showHeader ? 'translate-y-0' : '-translate-y-full'
-      } ${isOpen ? 'bg-black' : ''}`}
-      style={{
-        backgroundColor: isOpen ? 'black' : bgColor,
-        padding: isOpen ? '1rem 0' : scrolled ? '0.75rem 0' : '1rem 0',
-        boxShadow: scrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none',
-        willChange: 'transform',
+return (
+  <header
+    className={`fixed w-full z-50 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] ${
+      showHeader ? 'translate-y-0' : '-translate-y-full'
+    }`}
+    style={{
+      backgroundColor: isOpen ? 'rgb(0, 0, 0)' : bgColor, // 🔥 fondo negro sólido sin transparencia
+      padding: isOpen ? '1rem 0' : scrolled ? '0.75rem 0' : '1rem 0',
+      boxShadow: scrolled ? '0 4px 6px rgba(0, 0, 0, 0.1)' : 'none',
+      willChange: 'transform',
       }}
     >
       <div className="container mx-auto lg:pl-16 px-6 flex justify-between items-center">
         <a href="#" className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="h-7 w-24 md:h-8 mb-2 md:mt-3 mt-5 md:w-40 ml-2" />
+          <img src={logo} alt="Logo" className="h-6 w-24 md:h-8 mb-2 md:mt-3 mt-5 md:w-40 ml-2" />
         </a>
 
         <nav className="hidden lg:block mr-5">
@@ -83,12 +83,12 @@ const Header = () => {
       </div>
 
       <div
-        className={`lg:hidden fixed inset-0 bg-black z-40 transition-all duration-500 ease-in-out transform ${
-          isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
-        }`}
+        className={`lg:hidden fixed inset-0 h-screen bg-black z-50 transition-all duration-500 ease-in-out transform ${
+         isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+       }`}
       >
         <div className="flex justify-between items-center px-4 pt-6 pb-4">
-          <img src={logo} alt="Logo" className="h-7 w-24 ml-2 mt-1" />
+          <img src={logo} alt="Logo" className="h-6 w-24 ml-4 mt-2" />
           <button onClick={() => setIsOpen(false)} className="text-white" aria-label="Close Menu">
             <X size={28} />
           </button>
@@ -101,7 +101,7 @@ const Header = () => {
                 <li key={item.name} className="w-full">
                   <a
                     href={item.href}
-                    className="block py-3 text-xl font-semibold uppercase tracking-wide text-white hover:opacity-80 transition-colors duration-300"
+                    className="block py-3 text-base font-semibold uppercase tracking-wide text-white hover:opacity-80 transition-colors duration-300"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}

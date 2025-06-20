@@ -3,10 +3,13 @@ import { useInView } from '../../hooks/useInView';
 import navegando from './navegaaa.jpg';
 import sinFiltros from './FILTRO.jpg';
 import cadaLoco from './cadalocooo.jpg';
-import deportes from './hablemos.jpg';
+import deportes from './hablemoss.jpg';
 import paseo from './paseo.png';
 import Kimbo from './kimbo.png';
 import China from './china.png';
+import BTL from './lau-removebg-preview.png';
+import luaga from './luaga-removebg-preview.png';
+import centaura from './centauro-removebg-preview.png';
 
 const sections = [
   {
@@ -46,7 +49,7 @@ const sections = [
       'Aquí no hay temas pequeños: si te apasiona, lo exploramos.',
       'Un programa relajado, espontáneo y divertido.',
     ],
-    sponsors: [paseo , Kimbo, China],
+    sponsors: [paseo, Kimbo, China],
   },
   {
     title: 'HABLEMOS DE DEPORTES',
@@ -59,7 +62,7 @@ const sections = [
       'Desde el fútbol hasta disciplinas emergentes...',
       'El deporte es cultura, comunidad y emoción pura.',
     ],
-    sponsors: [paseo, Kimbo, China],
+    sponsors: [paseo, Kimbo, China, BTL, luaga, centaura],
   },
 ];
 
@@ -71,9 +74,15 @@ const AboutSection = () => {
     >
       <div className="container mx-auto px-4 md:px-10 space-y-32">
         {sections.map((section, index) => {
-          const sectionRef = useRef<HTMLDivElement>(null);
+          const sectionRef = useRef(null);
           const { inView } = useInView(sectionRef, { threshold: 0.2 });
           const isImageLeft = index % 2 === 0;
+
+          // Divide sponsors en filas de hasta 3
+          const sponsorRows = [];
+          for (let i = 0; i < section.sponsors.length; i += 3) {
+            sponsorRows.push(section.sponsors.slice(i, i + 3));
+          }
 
           return (
             <div
@@ -86,7 +95,11 @@ const AboutSection = () => {
               {/* Imagen */}
               <div
                 className={`lg:w-1/2 transition-all duration-1000 ${
-                  inView ? 'opacity-100 translate-x-0' : isImageLeft ? '-translate-x-10 opacity-0' : 'translate-x-10 opacity-0'
+                  inView
+                    ? 'opacity-100 translate-x-0'
+                    : isImageLeft
+                    ? '-translate-x-10 opacity-0'
+                    : 'translate-x-10 opacity-0'
                 }`}
               >
                 <div className="relative">
@@ -104,10 +117,16 @@ const AboutSection = () => {
               {/* Texto */}
               <div
                 className={`lg:w-1/2 transition-all duration-1000 delay-300 ${
-                  inView ? 'opacity-100 translate-x-0' : isImageLeft ? 'translate-x-10 opacity-0' : '-translate-x-10 opacity-0'
+                  inView
+                    ? 'opacity-100 translate-x-0'
+                    : isImageLeft
+                    ? 'translate-x-10 opacity-0'
+                    : '-translate-x-10 opacity-0'
                 }`}
               >
-                <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${section.titleColor}`}>
+                <h2
+                  className={`text-3xl md:text-4xl font-bold mb-6 ${section.titleColor}`}
+                >
                   {section.title}
                 </h2>
 
@@ -119,26 +138,30 @@ const AboutSection = () => {
 
                 {/* Sponsors */}
                 <div className="mt-8">
-  <h3 className={`text-xl font-semibold ${section.titleColor} mb-8`}>
-    Con el apoyo de:
-  </h3>
-  <div className="flex items-center space-x-6">
-  {section.sponsors.map((sponsor, sIdx) => {
-    const isKimbo = sponsor.toLowerCase().includes("kimbo");
-    const isChina = sponsor.toLowerCase().includes("china");
-
-    return (
-      <img
-        key={sIdx}
-        src={sponsor}
-        alt={`Sponsor ${sIdx}`}
-        className={`${isKimbo ? "h-20 md:h-28" : "h-12 md:h-24"} object-contain ${isChina ? "mb-5" : ""}`}
-      />
-    );
-  })}
-</div>
-</div>
-
+                  <h3 className={`text-xl font-semibold ${section.titleColor} mb-8`}>
+                    Con el apoyo de:
+                  </h3>
+                  {sponsorRows.map((row, rowIdx) => (
+                    <div key={rowIdx} className="flex items-center space-x-6 mb-6">
+                      {row.map((sponsor, sIdx) => {
+                        const isKimbo = sponsor.toLowerCase().includes('kimbo');
+                        const isChina = sponsor.toLowerCase().includes('china');
+                        const isBTL = sponsor.toLowerCase().includes('lau');
+                        return (
+                          <img
+                            key={sIdx}
+                            src={sponsor}
+                            alt={`Sponsor ${sIdx}`}
+                            className={`${
+                              isKimbo ? 'h-20 md:h-28' : 'h-12 md:h-24'
+                            } object-contain ${isChina ? 'mb-5' : ''}
+                             ${isBTL ? 'ml-3 md:mr-12 mr-8' : ''}`}
+                          />
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           );

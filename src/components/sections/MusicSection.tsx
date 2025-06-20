@@ -140,23 +140,23 @@ const MusicSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {columns.map((column, colIndex) => {
-            const bgStyle = {
-              backgroundImage: `url(${column.background})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            };
+  {columns.map((column, colIndex) => {
+    const bgStyle = {
+      backgroundImage: `url(${column.background})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    };
 
-            return (
-              <div
-                key={colIndex}
-                className={`relative rounded-lg overflow-hidden shadow-xl transition-all duration-700 delay-${colIndex * 300} ${inView ? "opacity-100 transform-none" : "opacity-0 translate-y-10"
-                  }`}
-                style={bgStyle}
-              >
+    return (
+      <div
+        key={colIndex}
+        className={`relative rounded-lg overflow-hidden shadow-xl transition-all duration-700 delay-${colIndex * 300} ${inView ? "opacity-100 transform-none" : "opacity-0 translate-y-10"
+          }`}
+        style={bgStyle}
+      >
                 <div className="absolute inset-0 bg-black/70"></div>
 
-                <div className="relative p-6 text-white">
+                <div className="relative p-5 text-white">
                   <h3 className="text-2xl font-bold mb-6">{column.title}</h3>
 
                   {column.tracks.map((track) => {
