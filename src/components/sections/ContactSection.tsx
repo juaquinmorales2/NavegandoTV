@@ -178,7 +178,7 @@ Puedes responder a este mensaje o contactarme por:
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-1">Teléfono</h4>
-                  <a href='wa.me/59892500713' className="text-gray-400">+598 92 500 713</a>
+                  <a href='https://wa.me/59892500713' className="text-gray-400">+598 92 500 713</a>
                 </div>
               </div>
               
