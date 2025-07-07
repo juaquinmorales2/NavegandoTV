@@ -3,11 +3,11 @@ import { useInView } from '../../hooks/useInView';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const shorts = [
-  { id: 1, url: "https://www.youtube.com/embed/tF5IGhV_O2o?rel=0&controls=0", },
-  { id: 2, url: "https://www.youtube.com/embed/_m-vPiaWdPk?rel=0&controls=0", },
-  { id: 3, url: "https://www.youtube.com/embed/1bSccspJPfk?rel=0&controls=0", },
-  { id: 4, url: "https://www.youtube.com/embed/6sB2gkUYbfw?rel=0&controls=0", },
-  { id: 5, url: "https://www.youtube.com/embed/EDJegIFTbjs?rel=0&controls=0", }
+  { id: 1, url: "https://www.youtube.com/embed/tF5IGhV_O2o?rel=0&controls=0" },
+  { id: 2, url: "https://www.youtube.com/embed/_m-vPiaWdPk?rel=0&controls=0" },
+  { id: 3, url: "https://www.youtube.com/embed/1bSccspJPfk?rel=0&controls=0" },
+  { id: 4, url: "https://www.youtube.com/embed/6sB2gkUYbfw?rel=0&controls=0" },
+  { id: 5, url: "https://www.youtube.com/embed/EDJegIFTbjs?rel=0&controls=0" }
 ];
 
 const ShortsSection = () => {
@@ -66,14 +66,10 @@ const ShortsSection = () => {
                   <iframe
                     className="w-full h-full"
                     src={short.url}
-                    title={short.title}
                     allow="autoplay; encrypted-media"
                     allowFullScreen
                     loading="lazy"
                   />
-                </div>
-                <div className="text-white text-center px-2 py-2 text-sm font-medium bg-black">
-                  {short.title}
                 </div>
               </div>
             ))}
