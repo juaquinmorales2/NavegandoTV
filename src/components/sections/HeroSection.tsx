@@ -1,13 +1,23 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { useInView } from '../../hooks/useInView';
 import Hero from '../sections/hero.webm';
 import HeroMobile from '../sections/Heromobile.mp4';
 import TypingEffect from './TypingEffect';
+import Modal from './Modal'; // Ruta igual a la que uses
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { inView } = useInView(sectionRef, { threshold: 0.1 });
+
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 7000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section
@@ -46,9 +56,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto w-full">
         <h1
           className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 transition-all duration-1000 ${
-            inView
-              ? 'opacity-100 transform-none'
-              : 'opacity-0 translate-y-10'
+            inView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'
           }`}
         >
           <span className="block font-Montserrat drop-shadow-[0_6px_15px_rgba(0,0,0,0.9)]">
@@ -64,9 +72,7 @@ const HeroSection = () => {
 
         <div
           className={`flex justify-center transition-all duration-1000 delay-500 ${
-            inView
-              ? 'opacity-100 transform-none'
-              : 'opacity-0 translate-y-10'
+            inView ? 'opacity-100 transform-none' : 'opacity-0 translate-y-10'
           }`}
         >
           {/* Aquí puedes agregar botones u otros elementos */}
@@ -106,6 +112,9 @@ const HeroSection = () => {
           <ChevronDown size={32} />
         </a>
       </div>
+
+      {/* Aquí mostramos el modal */}
+      {showModal && <Modal onClose={() => setShowModal(false)} />}
     </section>
   );
 };
