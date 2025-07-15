@@ -4,7 +4,7 @@ import { useInView } from '../../hooks/useInView';
 import Hero from '../sections/hero.webm';
 import HeroMobile from '../sections/Heromobile.mp4';
 import TypingEffect from './TypingEffect';
-import Modal from './Modal'; // Ruta igual a la que uses
+import Modal from './Modal';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);

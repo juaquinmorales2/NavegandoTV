@@ -10,6 +10,10 @@ import China from './china.png';
 import BTL from './lau-removebg-preview.png';
 import luaga from './luaga-removebg-preview.png';
 import centaura from './centauro-removebg-preview.png';
+import hector from './hector.jpeg';
+import ruta from './ruta73.png';
+import lolo from './lolo.png';
+import santa from './santa.png';
 
 const sections = [
   {
@@ -63,6 +67,19 @@ const sections = [
       'Te invitamos a conocer las disciplinas mas olvidadas del medio...',
     ],
     sponsors: [paseo, Kimbo, China, BTL, luaga, centaura],
+  },
+  {
+    title: 'COCINA SIMPLE PERO SABROSA',
+    image: hector,
+    borderColor: 'border-yellow-300',
+    titleColor: 'text-yellow-300',
+    text: [
+      'Un chef, una cocina, y el sabor como protagonista.',
+      'Recetas fáciles, técnicas claras y cero complicaciones.',
+      'En vivo, sin vueltas y con mucho gusto.',
+      'Esto es Cocina simple pero sabrosa.',
+    ],
+    sponsors: [paseo, Kimbo, China, ruta, lolo, santa],
   },
 ];
 
@@ -149,14 +166,26 @@ const AboutSection = () => {
                         const isBTL = sponsor.toLowerCase().includes('lau');
                         return (
                           <img
-                            key={sIdx}
-                            src={sponsor}
-                            alt={`Sponsor ${sIdx}`}
-                            className={`${
-                              isKimbo ? 'h-20 md:h-28' : 'h-12 md:h-24'
-                            } object-contain ${isChina ? 'mb-5' : ''}
-                             ${isBTL ? 'ml-3 md:mr-12 mr-8' : ''}`}
-                          />
+  key={sIdx}
+  src={sponsor}
+  alt={`Sponsor ${sIdx}`}
+  className={`
+    object-contain
+    ${isKimbo ? 'h-20 md:h-28' : 'h-12 md:h-24'}
+    ${isChina ? 'mb-5' : ''}
+    ${isBTL ? 'ml-3 md:mr-12 mr-8' : ''}
+    ${
+      sponsor.includes('santa')
+        ? 'h-16 md:h-24 md:ml-9'
+        : sponsor.includes('ruta73')
+        ? 'h-14 md:h-28 md:ml-1 '
+        : sponsor.includes('lolo')
+        ? 'h-32 md:h-40'
+        : ''
+    }
+  `}
+/>
+
                         );
                       })}
                     </div>

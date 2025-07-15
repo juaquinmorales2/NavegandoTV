@@ -4,6 +4,7 @@ import { useInView } from '../../hooks/useInView';
 import desenchufate from './SINFILTROS.jpg';
 import cadaloco from './cadaloco.jpg';
 import deportes from './hablemos.jpg';
+import hector from './cocina.jpeg';
 
 const columns = [
   {
@@ -39,7 +40,33 @@ const columns = [
       {
         id: "zM5ty6-A3XA",
         url: "https://www.youtube.com/watch?v=pe6X6F0zpEs",
-        title: "Hablando de Deporte"
+        title: "Proximamente"
+      },
+      {
+        id: "",
+        url: "https://youtube.com",
+        title: "proximamente"
+      },
+      {
+        id: "",
+        url: "https://youtube.com",
+        title: "proximamente"
+      },
+      {
+        id: "",
+        url: "https://youtube.com",
+        title: "proximamente"
+      },
+    ],
+  },
+  {
+    title: "Cocina Simple Pero Sabrosa",
+    background: hector,
+    tracks: [
+      {
+        id: "",
+        url: "https://youtube.com",
+        title: "Proximamente"
       },
       {
         id: "",
@@ -134,7 +161,7 @@ const MusicSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {columns.map((column, colIndex) => {
             const bgStyle = {
               backgroundImage: `url(${column.background})`,
