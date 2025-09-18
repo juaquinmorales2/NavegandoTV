@@ -14,6 +14,7 @@ import hector from './hector.jpeg';
 import ruta from './ruta73.png';
 import lolo from './lolo.png';
 import santa from './santa.png';
+import Soluciones from './soluciones.jpg';
 
 const sections = [
   {
@@ -53,7 +54,7 @@ const sections = [
       'Flor, Abigail, Gonza, Abril y Damián te invitan a sumarte a este delirio llamado',
       'Cada loco con su tema.',
     ],
-    sponsors: [paseo, Kimbo, China],
+    sponsors: [paseo, Kimbo, China, Soluciones],
   },
   {
     title: 'HABLEMOS DE DEPORTES',
@@ -164,6 +165,7 @@ const AboutSection = () => {
                         const isKimbo = sponsor.toLowerCase().includes('kimbo');
                         const isChina = sponsor.toLowerCase().includes('china');
                         const isBTL = sponsor.toLowerCase().includes('lau');
+                        const isSoluciones = sponsor.toLowerCase().includes('soluciones');
                         return (
                           <img
   key={sIdx}
@@ -172,6 +174,7 @@ const AboutSection = () => {
   className={`
     object-contain
     ${isKimbo ? 'h-20 md:h-28' : 'h-12 md:h-24'}
+    ${isSoluciones ? 'h-10 md:h-12 ml-3' : 'h-12 md:h-24'}
     ${isChina ? 'mb-5' : ''}
     ${isBTL ? 'ml-3 md:mr-12 mr-8' : ''}
     ${
